@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/titleFragment">
+
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.mvvm_game.GameFragment"
+        android:label="GameFragment"
+        tools:layout="@layout/game_fragment"
+        >
+        <action
+            android:id="@+id/action_gameFragment_to_scoreFramgent"
+            app:destination="@id/scoreFramgent" />
+    </fragment>
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="com.example.mvvm_game.TitleFragment"
+        android:label="TitleFragment"
+        tools:layout="@layout/title_fragment">
+        <action
+            android:id="@+id/action_game_to_score"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scoreFramgent"
+        android:name="com.example.mvvm_game.ScoreFramgent"
+        android:label="ScoreFramgent"
+        tools:layout="@layout/score_framgent">
+        <action
+            android:id="@+id/action_restart"
+            app:destination="@id/gameFragment" />
+        <argument
+            android:name="score"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+</navigation>
